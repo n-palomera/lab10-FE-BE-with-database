@@ -53,7 +53,7 @@ async function authMiddleware(req, res, next) {
   try {
     const JWKS = jose.createRemoteJWKSet(new URL(JWKS_URI));
     const { payload } = await jose.jwtVerify(token, JWKS);
-    req.userId = payload.sub; // Asgardeo unique user id → row-level auth
+    req.userId = payload.sub;
     return next();
   } catch (err) {
     console.error('JWT verification failed:', err.message);
@@ -62,7 +62,7 @@ async function authMiddleware(req, res, next) {
 }
 
 app.use('/puppies', authMiddleware);
-app.get('/', (_req, res) => res.json({ message: 'Hello, World!' }));
+app.get('/', (_req, res) => res.redirect('/puppies'));
 
 app.get('/puppies', async (req, res) => {
   try {
