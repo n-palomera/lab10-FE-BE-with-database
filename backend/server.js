@@ -62,7 +62,7 @@ async function authMiddleware(req, res, next) {
 }
 
 app.use('/puppies', authMiddleware);
-app.get('/', (_req, res) => res.redirect('/puppies'));
+//app.get('/', (_req, res) => res.redirect('/puppies'));
 
 app.get('/puppies', async (req, res) => {
   try {
