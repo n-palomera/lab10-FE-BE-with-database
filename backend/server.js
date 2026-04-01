@@ -11,7 +11,7 @@ const useSsl = process.env.PGSSLMODE === 'require';
 const ASGARDEO_ORG = process.env.ASGARDEO_ORG || 'nathanpalomera';
 const JWKS_URI = `https://api.asgardeo.io/t/${ASGARDEO_ORG}/oauth2/jwks`;
 
-app.use(cors({ origin: ['http://localhost:5173', 'https://YOUR-FRONTEND-URL.onrender.com'] }));
+app.use(cors());
 app.use(express.json());
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER,
