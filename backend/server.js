@@ -8,7 +8,7 @@ const app = express();
 
 const DB_SCHEMA = process.env.DB_SCHEMA || 'public';
 const useSsl = process.env.PGSSLMODE === 'require';
-const ASGARDEO_ORG = process.env.ASGARDEO_ORG || 'neworg2';
+const ASGARDEO_ORG = process.env.ASGARDEO_ORG || 'nathanpalomera';
 const JWKS_URI = `https://api.asgardeo.io/t/${ASGARDEO_ORG}/oauth2/jwks`;
 
 app.use(cors({ origin: ['http://localhost:5173', 'https://YOUR-FRONTEND-URL.onrender.com'] }));
